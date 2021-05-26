@@ -2,7 +2,7 @@ import os
 import discord
 from discord import channel
 from discord.ext import commands
-from pkg.utils import plus
+from pkg.utils import plus, minus
 
 bot = commands.Bot(command_prefix='!')
 
@@ -15,5 +15,9 @@ async def on_ready():
 @bot.command(name='plus')
 async def cmd_plus(ctx, a: int, b: int):
     await ctx.send(f'{a} + {b} = {plus(a, b)}')
+
+@bot.command(name='minus')
+async def cmd_minus(ctx, a: int, b: int):
+    await ctx.send(f'{a} - {b} = {minus(a, b)}')
 
 bot.run(os.getenv('TOKEN'))
